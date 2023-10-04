@@ -7,6 +7,7 @@ import { ObjectId } from "mongoose";
 import { Url_shortener, url_shortenerValidate } from "./url_shortener.model.js";
 
 const __dirname = path.resolve();
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
@@ -69,7 +70,7 @@ app.get("/api/shorturl/:shorturl", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Servidor escuchando en el puerto 3000");
+app.listen(port, () => {
+  console.log("Servidor escuchando en el puerto" + port);
   connectDB();
 });
